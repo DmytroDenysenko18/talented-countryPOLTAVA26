@@ -183,7 +183,7 @@
             padding-left: 15px; margin-bottom: 30px; text-transform: uppercase;
         }
 
-        /* === НОМІНАЦІЇ З ЕФЕКТОМ ВИДІЛЕННЯ === */
+        /* === НОМІНАЦІЇ === */
         .nominations-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -207,13 +207,30 @@
             transition: 0.3s;
         }
         
-        .nomination-card p { 
+        .nomination-card p, .nomination-card li { 
             font-size: 0.85rem; 
             color: #bbb; 
             transition: 0.3s;
         }
 
-        /* Ефект наведення (Hover) */
+        .nomination-card ul {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        .nomination-card ul li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .nomination-card ul li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
         .nomination-card:hover {
             background-color: rgba(0, 242, 255, 0.1);
             border-color: var(--primary-color);
@@ -222,7 +239,7 @@
         }
 
         .nomination-card:hover h4 { color: #fff; text-shadow: 0 0 10px var(--primary-color); }
-        .nomination-card:hover p { color: #fff; }
+        .nomination-card:hover p, .nomination-card:hover li { color: #fff; }
 
         .children-link {
             display: block; margin-top: 30px; padding: 15px;
@@ -233,18 +250,33 @@
         }
         .children-link:hover { background-color: var(--secondary-color); }
 
-        /* === ФОРМА === */
+        /* === ФОРМА ТА ПОЛЯ === */
         .form-group { margin-bottom: 18px; }
         .form-group label { display: block; margin-bottom: 7px; font-size: 0.75rem; color: #888; text-transform: uppercase; font-weight: bold; }
+        
         .form-group input, .form-group select {
-            width: 100%; padding: 12px; border: none; border-radius: 8px;
-            background-color: var(--input-bg); color: #000; font-size: 1rem;
+            width: 100%; padding: 12px; border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 8px;
+            background-color: #0a0a20; color: #fff; font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+        }
+
+        .form-group select option {
+            background-color: #0a0a20;
+            color: #fff;
+            text-transform: uppercase;
         }
 
         .checkbox-wrapper { display: flex; align-items: flex-start; font-size: 0.8rem; color: #bbb; margin-top: 10px; }
         .checkbox-wrapper input { width: 18px; height: 18px; margin-right: 10px; flex-shrink: 0; }
 
-        .form-actions .btn-submit { width: 100%; border-radius: 8px; }
+        .form-actions .btn-submit { width: 100%; border-radius: 8px; margin-top: 20px; }
 
         /* === ФУТЕР === */
         .footer { text-align: center; padding: 40px; background: #020208; color: #555; font-size: 0.9rem; }
@@ -315,70 +347,168 @@
         <div class="content-grid">
             
             <section class="nominations-section" id="nominations">
-                <h2 class="section-title">Номінації конкурсу</h2>
+                <h2 class="section-title">Номінації</h2>
                 <div class="nominations-list">
                     <div class="nomination-card">
                         <h4>Хореографія</h4>
-                        <p>Народний танець, сучасна хореографія, балет.</p>
+                        <ul>
+                            <li>народна хореографія (народний танець, танці народів світу, народний стилізований танець)</li>
+                            <li>класична хореографія</li>
+                            <li>сучасна хореографія (contemporary, contemporary-jazz, модерн, джаз-модерн та ін.)</li>
+                            <li>естрадна хореографія</li>
+                            <li>фольклорна композиція</li>
+                            <li>театралізований танець</li>
+                            <li>бальна хореографія</li>
+                            <li>Спортивні танці (в тому числі чарлідінг)</li>
+                            <li>street dance show (hip-hop, Jazz-funk, Vogue, Breakdance, диско, техно та ін.)</li>
+                            <li>східний танець</li>
+                            <li>вільна танцювальна категорія (для постановок, які не відповідають жодному з вищевказаних жанрів)</li>
+                        </ul>
                     </div>
+
                     <div class="nomination-card">
                         <h4>Вокал</h4>
-                        <p>Естрадний, академічний, народний вокал.</p>
+                        <ul>
+                            <li>естрадний вокал</li>
+                            <li>народний вокал</li>
+                            <li>академічний вокал</li>
+                            <li>джазовий вокал</li>
+                            <li>авторська пісня</li>
+                            <li>шоу-композиція</li>
+                        </ul>
                     </div>
-                    <div class="nomination-card">
-                        <h4>Інструментальна музика</h4>
-                        <p>Фортепіано, струнні, духові інструменти.</p>
-                    </div>
+
                     <div class="nomination-card">
                         <h4>Театральне мистецтво</h4>
-                        <p>Художнє слово, мініатюри, театри мод.</p>
-                    </div>
-                    <div class="nomination-card">
-                        <h4>Оригінальний жанр</h4>
-                        <p>Циркове мистецтво, акробатика.</p>
-                    </div>
-                    <div class="nomination-card">
-                        <h4>Образотворче мистецтво</h4>
-                        <p>Живопис, графіка, декор.</p>
+                        <p>Художнє читання, театри мініатюр, ляльок, пластики, драматичний театр.</p>
                     </div>
                 </div>
-                <a href="#" class="children-link">ДЕТАЛЬНЕ ПОЛОЖЕННЯ (СКАЧАТИ PDF)</a>
+                <a href="Taiented Country 2026 (Офіційне положення).pdf" class="children-link"> ПОЛОЖЕННЯ (СКАЧАТИ PDF)</a>
             </section>
             
             <section class="form-section" id="form">
-                <h2 class="section-title">Експрес-реєстрація</h2>
-                <form action="https://formspree.io/f/mykzlegq" method="POST">
+                <h2 class="section-title">Реєстрація</h2>
+                <form action="https://formspree.io/f/mbdogjaj" method="POST" id="regForm">
+                    
                     <div class="form-group">
-                        <label>ПІБ учасника / Назва колективу</label>
-                        <input type="text" name="ПІБ / Назва" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Контактний Email</label>
-                        <input type="email" name="_replyto" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Телефон</label>
-                        <input type="tel" name="Телефон" placeholder="+38 (0XX) XX-XX-XXX" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Оберіть номінацію</label>
-                        <select name="Номінація" required>
-                            <option value="">-- Оберіть --</option>
-                            <option>Хореографія</option>
-                            <option>Вокал</option>
-                            <option>Інструментальна музика</option>
-                            <option>Театральне мистецтво</option>
-                            <option>Оригінальний жанр</option>
-                            <option>Образотворче мистецтво</option>
+                        <label>Форма участі</label>
+                        <select name="Форма участі" required>
+                            <option value="">-- ОБЕРІТЬ --</option>
+                            <option value="Очна">ОЧНА</option>
+                            <option value="Заочна">ЗАОЧНА</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label>Повна назва колективу / ПІБ соліста</label>
+                        <input type="text" name="Колектив або Соліст" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Місто / населений пункт</label>
+                        <input type="text" name="Місто" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Навчальний заклад / студія / організація</label>
+                        <input type="text" name="Заклад">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Назва номеру</label>
+                        <input type="text" name="Назва номеру" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Жанр</label>
+                        <select name="Жанр" id="genreSelect" required onchange="updateNominations()">
+                            <option value="">-- СПОЧАТКУ ОБЕРІТЬ ЖАНР --</option>
+                            <option value="хореографія">ХОРЕОГРАФІЯ</option>
+                            <option value="вокал">ВОКАЛ</option>
+                            <option value="театр">ТЕАТРАЛЬНЕ МИСТЕЦТВО</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Номінація</label>
+                        <select name="Номінація" id="nominationSelect" required disabled>
+                            <option value="">-- ОБЕРІТЬ ЖАНР --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Вікова категорія</label>
+                        <select name="Вікова категорія" required>
+                            <option value="">-- ОБЕРІТЬ --</option>
+                            <option>ДЕБЮТ</option>
+                            <option>МОЛОДША (3-5 РОКІВ)</option>
+                            <option>ПЕРША (6-8 РОКІВ)</option>
+                            <option>ДРУГА (9-11 РОКІВ)</option>
+                            <option>ТРЕТЯ (12-14 РОКІВ)</option>
+                            <option>ЧЕТВЕРТА (15-17 РОКІВ)</option>
+                            <option>П’ята (18-25 РОКІВ)</option>
+                            <option>ЗМІШАНА МОЛОДША (ДО 10 РОКІВ)</option>
+                            <option>ЗМІШАНА</option>
+                            <option>ПРОФЕСІОНАЛИ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Кількість учасників</label>
+                        <input type="number" name="Кількість" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Тривалість номеру</label>
+                        <input type="text" name="Тривалість" placeholder="НАПР. 03:45" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Початок номеру</label>
+                        <select name="Початок номеру" required>
+                            <option value="">-- ОБЕРІТЬ --</option>
+                            <option value="З куліс">З КУЛІС</option>
+                            <option value="З крапки">З КРАПКИ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Автор постановки</label>
+                        <input type="text" name="Автор постановки">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ПІП керівника / викладача</label>
+                        <input type="text" name="Керівник" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Контактний номер</label>
+                        <input type="tel" name="Телефон" placeholder="+38 (0XX) XX-XX-XXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Електронна пошта</label>
+                        <input type="email" name="_replyto" required style="text-transform: none;"> </div>
+
+                    <div class="form-group">
+                        <label>Технічні потреби</label>
+                        <input type="text" name="Технічні потреби" placeholder="МІКРОФОНИ, РЕКВІЗИТ ТОЩО">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Додаткова інформація</label>
+                        <input type="text" name="Додатково">
+                    </div>
+
                     <div class="checkbox-wrapper">
                         <input type="checkbox" id="agree" required>
-                        <label for="agree">Я погоджуюсь з Положенням та обробкою даних</label>
+                        <label for="agree">Я ПОГОДЖУЮСЬ З ПОЛОЖЕННЯМ ТА ОБРОБКОЮ ДАНИХ</label>
                     </div>
+                    
                     <div class="form-actions">
                         <input type="hidden" name="_subject" value="НОВА ЗАЯВКА - TC 2026">
-                        <button type="submit" class="btn-submit">Надіслати заявку</button>
+                        <button type="submit" class="btn-submit">НАДІСЛАТИ ЗАЯВКУ</button>
                     </div>
                 </form>
             </section>
@@ -386,13 +516,66 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025-2026 TALENTED COUNTRY. Всі права захищені.</p>
+        <p>&copy; 2026 TALENTED COUNTRY. Всі права захищені.</p>
     </footer>
 
     <script>
+        // ДИНАМІЧНІ НОМІНАЦІЇ (ТЕПЕР ВЕЛИКИМИ БУКВАМИ)
+        const nomsData = {
+            "хореографія": [
+                "НАРОДНА ХОРЕОГРАФІЯ",
+                "КЛАСИЧНА ХОРЕОГРАФІЯ",
+                "СУЧАСНА ХОРЕОГРАФІЯ",
+                "ЕСТРАДНА ХОРЕОГРАФІЯ",
+                "ФОЛЬКЛОРНА КОМПОЗИЦІЯ",
+                "ТЕАТРАЛІЗОВАНИЙ ТАНЕЦЬ",
+                "БАЛЬНА ХОРЕОГРАФІЯ",
+                "СПОРТИВНІ ТАНЦІ (ЧАРЛІДІНГ)",
+                "STREET DANCE SHOW",
+                "СХІДНИЙ ТАНЕЦЬ",
+                "ВІЛЬНА ТАНЦЮВАЛЬНА КАТЕГОРІЯ"
+            ],
+            "вокал": [
+                "ЕСТРАДНИЙ ВОКАЛ",
+                "НАРОДНИЙ ВОКАЛ",
+                "АКАДЕМІЧНИЙ ВОКАЛ",
+                "ДЖАЗОВИЙ ВОКАЛ",
+                "АВТОРСЬКА ПІСНЯ",
+                "ШОУ-КОМПОЗИЦІЯ"
+            ],
+            "театр": [
+                "ХУДОЖНЄ ЧИТАННЯ",
+                "ТЕАТР МІНІАТЮР",
+                "ТЕАТР ПЛАСТИКИ",
+                "ТЕАТР ЛЯЛЬОК",
+                "ДРАМАТИЧНИЙ ТЕАТР"
+            ]
+        };
+
+        function updateNominations() {
+            const genre = document.getElementById('genreSelect').value;
+            const nomSelect = document.getElementById('nominationSelect');
+            
+            nomSelect.innerHTML = '<option value="">-- ОБЕРІТЬ НОМІНАЦІЮ --</option>';
+            
+            if (genre && nomsData[genre]) {
+                nomSelect.disabled = false;
+                nomsData[genre].forEach(nom => {
+                    let option = document.createElement('option');
+                    option.value = nom;
+                    option.textContent = nom;
+                    nomSelect.appendChild(option);
+                });
+            } else {
+                nomSelect.disabled = true;
+                nomSelect.innerHTML = '<option value="">-- СПОЧАТКУ ОБЕРІТЬ ЖАНР --</option>';
+            }
+        }
+
+        // ТАЙМЕРИ (ОНОВЛЕНО ДАТИ)
         function updateCountdown() {
-            const targetReg = new Date("June 1, 2026 00:00:00").getTime();
-            const targetComp = new Date("June 15, 2026 10:00:00").getTime();
+            const targetComp = new Date("March 14, 2026 10:00:00").getTime();
+            const targetReg = new Date("March 4, 2026 23:59:59").getTime();
 
             function calculate(target, prefix) {
                 const now = new Date().getTime();
@@ -404,22 +587,28 @@
                 const s = dist > 0 ? Math.floor((dist % (1000 * 60)) / 1000) : 0;
 
                 const f = (n) => String(n).padStart(2, '0');
-                document.getElementById(prefix + '-cd-days').innerText = f(d);
-                document.getElementById(prefix + '-cd-hours').innerText = f(h);
-                document.getElementById(prefix + '-cd-minutes').innerText = f(m);
-                document.getElementById(prefix + '-cd-seconds').innerText = f(s);
+                if(document.getElementById(prefix + '-cd-days')) {
+                    document.getElementById(prefix + '-cd-days').innerText = f(d);
+                    document.getElementById(prefix + '-cd-hours').innerText = f(h);
+                    document.getElementById(prefix + '-cd-minutes').innerText = f(m);
+                    document.getElementById(prefix + '-cd-seconds').innerText = f(s);
+                }
             }
             setInterval(() => { calculate(targetReg, 'reg'); calculate(targetComp, 'comp'); }, 1000);
         }
 
+        // МУЗИКА
         function initMusic() {
             const audio = document.getElementById('bgMusic');
             document.body.addEventListener('click', () => {
-                if (audio.paused) audio.play().catch(() => {});
+                if (audio && audio.paused) audio.play().catch(() => {});
             }, { once: true });
         }
 
-        window.onload = () => { updateCountdown(); initMusic(); };
+        window.onload = () => { 
+            updateCountdown(); 
+            initMusic(); 
+        };
     </script>
 </body>
 </html>
