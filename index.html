@@ -183,6 +183,15 @@
             padding-left: 15px; margin-bottom: 30px; text-transform: uppercase;
         }
 
+        .required-note {
+            display: block;
+            margin-top: -20px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
         /* === НОМІНАЦІЇ === */
         .nominations-list {
             display: grid;
@@ -388,6 +397,7 @@
             
             <section class="form-section" id="form">
                 <h2 class="section-title">Реєстрація</h2>
+                <span class="required-note">*Всі поля обов'язкові для заповнення</span>
                 <form action="https://formspree.io/f/mkorzdjv" method="POST" id="regForm">
                     
                     <div class="form-group">
@@ -454,7 +464,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Кількість учасників</label>
+                        <label>Кількість учасників задіяних у номері</label>
                         <input type="number" name="Кількість" required>
                     </div>
 
@@ -494,6 +504,11 @@
                     <div class="form-group">
                         <label>Технічні потреби</label>
                         <input type="text" name="Технічні потреби" placeholder="МІКРОФОНИ, РЕКВІЗИТ ТОЩО">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Загальна кількість учасників конкурсної програми фестивалю від колективу</label>
+                        <input type="number" name="Загальна кількість учасників колективу" required>
                     </div>
 
                     <div class="form-group">
@@ -612,8 +627,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
