@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TALENTED COUNTRY 2026 / Полтава</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* === Кольорова палітра === */
         :root {
@@ -287,8 +288,46 @@
 
         .form-actions .btn-submit { width: 100%; border-radius: 8px; margin-top: 20px; }
 
-        /* === ФУТЕР === */
-        .footer { text-align: center; padding: 40px; background: #020208; color: #555; font-size: 0.9rem; }
+        /* === ФУТЕР (ОНОВЛЕНО) === */
+        .footer { 
+            text-align: center; 
+            padding: 40px; 
+            background: rgba(5, 5, 16, 0.95); 
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888; 
+            font-size: 0.9rem; 
+        }
+
+        .developer-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .developer-name {
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .dev-links {
+            display: flex;
+            gap: 20px;
+            font-size: 1.4rem;
+        }
+
+        .dev-links a {
+            color: #555;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dev-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+            text-shadow: 0 0 15px var(--primary-color);
+        }
 
         /* === АДАПТИВНІСТЬ === */
         @media (max-width: 1024px) {
@@ -369,7 +408,7 @@
                             <li>театралізований танець</li>
                             <li>бальна хореографія</li>
                             <li>Спортивні танці (в тому числі чарлідінг)</li>
-                            <li>street dance show (hip-hop, Jazz-funk, Vogue, Breakdance, диско, техно та ін.)</li>
+                            <li>street dance show (hip-hop, Jazz-funk, Vogue, Breakdance, диско, techno та ін.)</li>
                             <li>східний танець</li>
                             <li>вільна танцювальна категорія (для постановок, які не відповідають жодному з вищевказаних жанрів)</li>
                         </ul>
@@ -532,6 +571,13 @@
 
     <footer class="footer">
         <p>&copy; 2026 TALENTED COUNTRY. Всі права захищені.</p>
+        <div class="developer-info">
+            <span class="developer-name">Розробник Dmytro Denysenko</span>
+            <div class="dev-links">
+                <a href="https://www.instagram.com/dgt.dev.studio?igsh=MTcyaTNidnJxMXNnOA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://dmytrodenysenko18.github.io/Dmytro-Denysenko-Full-Stack-Developer/" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -627,5 +673,3 @@
     </script>
 </body>
 </html>
-
-
